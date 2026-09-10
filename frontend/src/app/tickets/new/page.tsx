@@ -50,7 +50,7 @@ export default function NewTicketPage() {
 
   if (created) {
     return (
-      <div className="card success-panel">
+      <div className="card card-3d success-panel">
         <div className="alert alert-success">Request submitted successfully!</div>
         <p className="meta">Save this ticket ID — use it anytime to check your status</p>
         <div className="ticket-id-display">#{created.id}</div>
@@ -86,7 +86,7 @@ export default function NewTicketPage() {
 
       {error && <div className="alert">{error}</div>}
 
-      <form className="card" onSubmit={handleSubmit}>
+      <form className="card card-3d" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="ticketType">Request Type</label>
           <select

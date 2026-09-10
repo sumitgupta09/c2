@@ -29,16 +29,21 @@ export default function AuthBar() {
 
   return (
     <nav className="topbar">
-      <div>
+      <div className="topbar-brand-wrap">
         <Link href="/" className="topbar-brand-link">
-          <div className="topbar-brand">Gupta Corp Support Desk</div>
+          <div className="topbar-logo">G</div>
         </Link>
-        {session && (
-          <div className="topbar-user">
-            {session.name}
-            <span className={`badge ${badgeClass()}`}>{roleLabel(session)}</span>
-          </div>
-        )}
+        <div>
+          <Link href="/" className="topbar-brand-link">
+            <div className="topbar-brand">Gupta Corp Support Desk</div>
+          </Link>
+          {session && (
+            <div className="topbar-user">
+              {session.name}
+              <span className={`badge ${badgeClass()}`}>{roleLabel(session)}</span>
+            </div>
+          )}
+        </div>
       </div>
       <div className="topbar-actions">
         <Link href="/tickets/new" className="btn btn-primary">Raise Request</Link>

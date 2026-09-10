@@ -112,7 +112,7 @@ function TicketDetailForm() {
     }
   }
 
-  if (loading) return <div className="card empty-state">Loading ticket...</div>;
+  if (loading) return <div className="shimmer" style={{ minHeight: 280 }} />;
   if (!ticket) return <div className="alert">{error ?? "Ticket not found"}</div>;
 
   return (
@@ -161,7 +161,7 @@ function TicketDetailForm() {
         </div>
       </div>
 
-      <form className={`card ${!canEdit ? "readonly" : ""}`} onSubmit={handleUpdate}>
+      <form className={`card card-3d ${!canEdit ? "readonly" : ""}`} onSubmit={handleUpdate}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input id="title" value={title} onChange={(e) => setTitle(e.target.value)} disabled={!canEdit} />
@@ -210,7 +210,7 @@ function TicketDetailForm() {
         )}
       </form>
 
-      <section className="comments card" style={{ marginTop: "1rem" }}>
+      <section className="comments card card-3d" style={{ marginTop: "1rem" }}>
         <h2 style={{ marginTop: 0 }}>Comments</h2>
         {ticket.comments.length === 0 ? (
           <p className="meta">No comments yet.</p>

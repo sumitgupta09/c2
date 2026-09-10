@@ -66,6 +66,27 @@ function StaffDashboard() {
 
       {error && <div className="alert">{error}</div>}
 
+      {!loading && tickets.length > 0 && (
+        <div className="dashboard-stats">
+          <div className="dash-stat">
+            <div className="dash-stat-value">{tickets.length}</div>
+            <div className="dash-stat-label">In Queue</div>
+          </div>
+          <div className="dash-stat">
+            <div className="dash-stat-value">{tickets.filter((t) => t.status === "OPEN").length}</div>
+            <div className="dash-stat-label">Open</div>
+          </div>
+          <div className="dash-stat">
+            <div className="dash-stat-value">{tickets.filter((t) => t.status === "IN_PROGRESS").length}</div>
+            <div className="dash-stat-label">In Progress</div>
+          </div>
+          <div className="dash-stat">
+            <div className="dash-stat-value">{tickets.filter((t) => ["RESOLVED", "CLOSED"].includes(t.status)).length}</div>
+            <div className="dash-stat-label">Resolved</div>
+          </div>
+        </div>
+      )}
+
       <div className="filters">
         <input
           type="search"
@@ -82,7 +103,7 @@ function StaffDashboard() {
       </div>
 
       {loading ? (
-        <div className="card empty-state">Loading tickets...</div>
+        <div className="shimmer" />
       ) : tickets.length === 0 ? (
         <div className="card empty-state">
           <p>No tickets found for your queue.</p>

@@ -27,14 +27,17 @@ export default function LoginPage() {
 
   return (
     <div className="login-page">
+      <div style={{ textAlign: "center", marginBottom: "0.5rem" }}>
+        <div className="topbar-logo" style={{ margin: "0 auto 1rem", width: 56, height: 56, fontSize: "1.5rem" }}>G</div>
+      </div>
       <h1>Gupta Corp</h1>
       <p className="meta" style={{ textAlign: "center" }}>
-        Corporate Support Desk — staff sign in
+        Corporate Support Desk — secure staff access
       </p>
 
       {error && <div className="alert">{error}</div>}
 
-      <form className="card login-card" onSubmit={handleSubmit}>
+      <form className="card card-3d login-card" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Work Email</label>
           <input
@@ -56,7 +59,7 @@ export default function LoginPage() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={loading}>
+        <button type="submit" className="btn btn-primary btn-glow" style={{ width: "100%" }} disabled={loading}>
           {loading ? "Signing in..." : "Sign In"}
         </button>
       </form>

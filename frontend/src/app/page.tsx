@@ -22,29 +22,47 @@ export default function HomePage() {
   return (
     <div className="portal-hero">
       <header className="portal-header">
+        <div className="portal-badge">✦ Enterprise Support Platform 2026</div>
         <h1>Gupta Corp Employee Portal</h1>
         <p className="page-subtitle">
-          Corporate office support — raise HR, IT, finance, database, or account requests. Track by ticket ID anytime.
+          Raise HR, IT, finance, database, or account requests. Track status in real time — auto-routed to the right team.
         </p>
       </header>
+
+      <div className="portal-stats">
+        <div className="stat-pill">
+          <strong>6</strong>
+          <span>Request Types</span>
+        </div>
+        <div className="stat-pill">
+          <strong>24/7</strong>
+          <span>Track by ID</span>
+        </div>
+        <div className="stat-pill">
+          <strong>Auto</strong>
+          <span>Team Routing</span>
+        </div>
+      </div>
 
       {error && <div className="alert">{error}</div>}
 
       <div className="portal-grid">
-        <div className="card portal-card">
+        <div className="card portal-card card-3d">
+          <div className="portal-card-icon">🎫</div>
           <h2>Raise a Request</h2>
           <p className="meta">
-            Submit a support ticket. It is auto-assigned to the right team based on type.
+            Submit a support ticket. Auto-assigned to IT, HR, Finance, Database, or Accounts based on type.
           </p>
-          <Link href="/tickets/new" className="btn btn-primary" style={{ marginTop: "1rem" }}>
-            Create Ticket
+          <Link href="/tickets/new" className="btn btn-primary btn-glow" style={{ marginTop: "1.25rem" }}>
+            Create Ticket →
           </Link>
         </div>
 
-        <div className="card portal-card">
+        <div className="card portal-card card-3d">
+          <div className="portal-card-icon">🔍</div>
           <h2>Check Ticket Status</h2>
-          <p className="meta">Enter the ticket ID you received when you created your request.</p>
-          <form className="track-box" onSubmit={handleTrack} style={{ marginTop: "1rem" }}>
+          <p className="meta">Enter the ticket ID from your confirmation — no login required.</p>
+          <form className="track-box" onSubmit={handleTrack} style={{ marginTop: "1.25rem" }}>
             <input
               type="text"
               placeholder="Ticket ID e.g. 42"
@@ -52,16 +70,17 @@ export default function HomePage() {
               onChange={(e) => setTrackId(e.target.value)}
               aria-label="Ticket ID"
             />
-            <button type="submit" className="btn btn-primary">Check Status</button>
+            <button type="submit" className="btn btn-primary">Track</button>
           </form>
         </div>
 
-        <div className="card portal-card">
+        <div className="card portal-card card-3d">
+          <div className="portal-card-icon">🔐</div>
           <h2>Staff Login</h2>
           <p className="meta">
-            Support agents and admins sign in here to update status, assign, and resolve tickets.
+            Agents and admins sign in to triage queues, update status, assign, and resolve tickets.
           </p>
-          <Link href="/login" className="btn" style={{ marginTop: "1rem" }}>
+          <Link href="/login" className="btn" style={{ marginTop: "1.25rem" }}>
             Staff Sign In
           </Link>
         </div>
