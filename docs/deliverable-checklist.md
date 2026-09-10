@@ -32,7 +32,10 @@
 | 5 | MCP server | `mcp-server/` + `.cursor/mcp.json` | ✅ |
 | | | `docs/mcp-debugging.md` | ✅ |
 | 6 | Prompt history | `docs/prompt-history.md` | ✅ |
-| | | `.specstory/history/` | ✅ |
+| | | `.specstory/history/` (37 exported prompts) | ✅ |
+| | | `docs/verification-log.md` | ✅ |
+| | | `docs/PR-EVIDENCE.md` | ✅ |
+| | | `.specify/tasks.md` (Spec-Kit /tasks) | ✅ |
 | 7 | Token optimisation | `docs/ai-context-strategy.md` | ✅ |
 | 8 | Requirement analysis A–P | `docs/requirements-analysis.md` | ✅ |
 | 9 | Traceability matrix | `docs/requirements-traceability.md` | ✅ |
