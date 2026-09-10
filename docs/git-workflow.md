@@ -18,10 +18,12 @@ See `docs/PR-EVIDENCE.md` for full PR body and review checklist.
 
 ## PR checklist (ready to open)
 
-When a remote is configured:
+Remote configured:
 
 ```bash
-git remote add origin <your-github-url>
+git remote -v
+# origin  https://github.com/sumitgupta09/c2.git
+
 git push -u origin cursor/compliance-gaps
 gh pr create --title "Support Desk: spec-driven implementation + compliance artifacts" --body "$(cat <<'EOF'
 ## Summary

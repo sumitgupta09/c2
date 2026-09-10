@@ -1,7 +1,7 @@
 # Pull Request Evidence
 
 **Branch:** `cursor/compliance-gaps` → `main`  
-**Status:** Ready to push (local merge complete)  
+**Status:** Ready to push — remote `https://github.com/sumitgupta09/c2.git` configured  
 **Date:** 2026-09-10
 
 ## PR Title
