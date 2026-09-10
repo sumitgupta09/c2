@@ -1,0 +1,19 @@
+spring:
+  main:
+    web-application-type: none
+  datasource:
+    url: jdbc:h2:file:./target/persistence-h2/tickets;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+app:
+  jwt:
+    secret: persistence-test-secret-must-be-32-chars-min
+    expiration-hours: 1
+  cors:
+    allowed-origins: http://localhost:3000
