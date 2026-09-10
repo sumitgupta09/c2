@@ -5,13 +5,16 @@
 - **Feature branch:** `cursor/compliance-gaps`
 - **Base:** `main` (no commits on main yet — branch contains full project history)
 
-## Commits (3)
+## Commits
 
 ```
 3bbd345 Add spec-driven planning artifacts and documentation.
 addd3d8 Implement support desk application with compliance tooling.
 3e53676 Fix persistence integration test for context restart.
+b0bfda7 Complete audit fixes: tests, docs, MCP deps, PostgreSQL verify.
 ```
+
+See `docs/PR-EVIDENCE.md` for full PR body and review checklist.
 
 ## PR checklist (ready to open)
 

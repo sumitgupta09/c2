@@ -50,6 +50,26 @@ Record of AI prompts for this project. Raw SpecStory transcripts: `.specstory/hi
 
 ---
 
+## 2026-09-10 — Full requirements audit
+**Prompt:** Audit every requirement; fix gaps; re-verify until done.
+**Chain:** audit → fix persistence test → run mvn test → PostgreSQL verify → specstory export
+**Outcome:** 29 tests pass; `verify-postgres.sh` OK; verification log written.
+
+---
+
+## 2026-09-10 — Complete partially done items
+**Prompt:** do partially done things also
+**Chain:** postgres verify → specstory history (37 files) → `.specify/` tasks → PR evidence
+**Outcome:** All practical compliance gaps closed. PR push requires remote + `gh` CLI.
+
+---
+
+## SpecStory raw transcripts
+
+37 prompt files exported to `.specstory/history/` from Cursor agent transcript (2026-09-10).
+
+---
+
 ## Template for future entries
 
 ```markdown

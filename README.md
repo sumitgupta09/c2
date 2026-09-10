@@ -113,10 +113,22 @@ Prompt templates: `prompts/templates.md`, `prompts/few-shot-examples.md`
 
 ```bash
 docker compose up -d
-cd backend && SPRING_PROFILES_ACTIVE=prod mvn spring-boot:run
+export SPRING_PROFILES_ACTIVE=prod
+export DATABASE_URL=jdbc:postgresql://localhost:5433/tickets
+export DATABASE_USERNAME=tickets
+export DATABASE_PASSWORD=tickets
+export JWT_SECRET=your-32-char-min-secret-here
+export SPRING_JPA_HIBERNATE_DDL_AUTO=update
+cd backend && mvn spring-boot:run
 ```
 
-Uses `application-prod.yml` (PostgreSQL on port 5432).
+Uses `application-prod.yml` (PostgreSQL via Docker on port **5433** — avoids conflict with local Postgres on 5432).
+
+Verify restart persistence against PostgreSQL:
+
+```bash
+./scripts/verify-postgres.sh
+```
 
 ---
 

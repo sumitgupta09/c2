@@ -10,7 +10,7 @@ echo "Starting PostgreSQL..."
 docker compose up -d --wait
 
 export SPRING_PROFILES_ACTIVE=prod
-export DATABASE_URL=jdbc:postgresql://localhost:5432/tickets
+export DATABASE_URL=jdbc:postgresql://localhost:5433/tickets
 export DATABASE_USERNAME=tickets
 export DATABASE_PASSWORD=tickets
 export JWT_SECRET=postgres-verify-secret-32chars-min
