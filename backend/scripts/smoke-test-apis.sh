@@ -2,7 +2,7 @@
 set -euo pipefail
 
 BASE="${API_BASE:-http://localhost:8080/api}"
-EMAIL="${TEST_EMAIL:-support.admin@acmecorp.com}"
+EMAIL="${TEST_EMAIL:-support.admin@guptacorp.com}"
 PASSWORD="${TEST_PASSWORD:-admin123}"
 
 echo "=== 1. POST /auth/login ==="

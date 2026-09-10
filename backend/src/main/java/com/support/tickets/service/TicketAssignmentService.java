@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketAssignmentService {
 
-    public static final String MAIN_ADMIN = "support.admin@acmecorp.com";
-    public static final String IT_LEAD = "it.lead@acmecorp.com";
-    public static final String DB_LEAD = "db.lead@acmecorp.com";
-    public static final String HR_LEAD = "hr.lead@acmecorp.com";
-    public static final String FINANCE_LEAD = "finance.lead@acmecorp.com";
-    public static final String ACCOUNTS_LEAD = "accounts.lead@acmecorp.com";
+    public static final String MAIN_ADMIN = "support.admin@guptacorp.com";
+    public static final String IT_LEAD = "it.lead@guptacorp.com";
+    public static final String DB_LEAD = "db.lead@guptacorp.com";
+    public static final String HR_LEAD = "hr.lead@guptacorp.com";
+    public static final String FINANCE_LEAD = "finance.lead@guptacorp.com";
+    public static final String ACCOUNTS_LEAD = "accounts.lead@guptacorp.com";
 
     private final UserRepository userRepository;
 

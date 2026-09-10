@@ -31,7 +31,7 @@ export default function AuthBar() {
     <nav className="topbar">
       <div>
         <Link href="/" className="topbar-brand-link">
-          <div className="topbar-brand">Acme Corp Support Desk</div>
+          <div className="topbar-brand">Gupta Corp Support Desk</div>
         </Link>
         {session && (
           <div className="topbar-user">

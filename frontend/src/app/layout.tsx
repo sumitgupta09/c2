@@ -3,7 +3,7 @@ import AuthBar from "@/components/AuthBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Acme Corp Support Desk",
+  title: "Gupta Corp Support Desk",
   description: "Corporate employee support portal",
 };
 

@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <div className="portal-hero">
       <header className="portal-header">
-        <h1>Acme Corp Employee Portal</h1>
+        <h1>Gupta Corp Employee Portal</h1>
         <p className="page-subtitle">
           Corporate office support — raise HR, IT, finance, database, or account requests. Track by ticket ID anytime.
         </p>

@@ -1,4 +1,4 @@
-# Acme Corp Support Desk
+# Gupta Corp Support Desk
 
 Support Ticket Management System — full-stack implementation with spec-driven development.
 
@@ -84,10 +84,10 @@ cd backend && mvn test
 
 | Role | Email | Password |
 |------|-------|----------|
-| Support Desk Manager | `support.admin@acmecorp.com` | `admin123` |
-| IT Team Lead | `it.lead@acmecorp.com` | `lead123` |
-| IT Agent | `it.agent@acmecorp.com` | `agent123` |
-| HR Team Lead | `hr.lead@acmecorp.com` | `lead123` |
+| Support Desk Manager | `support.admin@guptacorp.com` | `admin123` |
+| IT Team Lead | `it.lead@guptacorp.com` | `lead123` |
+| IT Agent | `it.agent@guptacorp.com` | `agent123` |
+| HR Team Lead | `hr.lead@guptacorp.com` | `lead123` |
 
 Public users can raise requests and track by ticket ID without login.
 

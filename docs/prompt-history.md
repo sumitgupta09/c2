@@ -26,7 +26,7 @@ Record of AI prompts for this project. Raw SpecStory transcripts: `.specstory/hi
 ---
 
 ## 2026-09-10 — Auth + corporate teams
-**Prompt:** Login roles (admin, team lead, agent), auto-assign by ticket type, Acme Corp seed data.
+**Prompt:** Login roles (admin, team lead, agent), auto-assign by ticket type, Gupta Corp seed data.
 **Outcome:** JWT auth, `SupportTeam`, `DataSeeder`, corporate routing.
 
 ---

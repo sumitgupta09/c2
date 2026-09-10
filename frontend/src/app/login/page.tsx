@@ -27,7 +27,7 @@ export default function LoginPage() {
 
   return (
     <div className="login-page">
-      <h1>Acme Corp</h1>
+      <h1>Gupta Corp</h1>
       <p className="meta" style={{ textAlign: "center" }}>
         Corporate Support Desk — staff sign in
       </p>
@@ -43,7 +43,7 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            placeholder="you@acmecorp.com"
+            placeholder="you@guptacorp.com"
           />
         </div>
         <div className="form-group">
@@ -67,11 +67,11 @@ export default function LoginPage() {
 
       <div className="card login-hints" style={{ marginTop: "1rem" }}>
         <p><strong>Demo corporate accounts</strong></p>
-        <p>Main Admin: <code>support.admin@acmecorp.com</code> / <code>admin123</code></p>
-        <p>IT Team Lead: <code>it.lead@acmecorp.com</code> / <code>lead123</code></p>
-        <p>IT Agent: <code>it.agent@acmecorp.com</code> / <code>agent123</code></p>
-        <p>HR Team Lead: <code>hr.lead@acmecorp.com</code> / <code>lead123</code></p>
-        <p>DB Agent: <code>db.agent@acmecorp.com</code> / <code>agent123</code></p>
+        <p>Main Admin: <code>support.admin@guptacorp.com</code> / <code>admin123</code></p>
+        <p>IT Team Lead: <code>it.lead@guptacorp.com</code> / <code>lead123</code></p>
+        <p>IT Agent: <code>it.agent@guptacorp.com</code> / <code>agent123</code></p>
+        <p>HR Team Lead: <code>hr.lead@guptacorp.com</code> / <code>lead123</code></p>
+        <p>DB Agent: <code>db.agent@guptacorp.com</code> / <code>agent123</code></p>
       </div>
     </div>
   );

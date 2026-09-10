@@ -37,7 +37,7 @@ class PersistenceIntegrationTest {
         ticket.setDescription("Should survive context restart");
         ticket.setTicketType(TicketType.HR);
         ticket.setPriority(TicketPriority.MEDIUM);
-        ticket.setAssignee("hr.lead@acmecorp.com");
+        ticket.setAssignee("hr.lead@guptacorp.com");
         ticket.setCreatedBy("guest");
         persistedTicketId = ticketRepository.save(ticket).getId();
         assertThat(persistedTicketId).isPositive();

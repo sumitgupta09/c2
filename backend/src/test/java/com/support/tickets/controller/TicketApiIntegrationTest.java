@@ -33,8 +33,8 @@ class TicketApiIntegrationTest {
 
     private static final String MAIN_ADMIN = TicketAssignmentService.MAIN_ADMIN;
     private static final String IT_LEAD = TicketAssignmentService.IT_LEAD;
-    private static final String IT_AGENT = "it.agent@acmecorp.com";
-    private static final String FINANCE_AGENT = "finance.agent@acmecorp.com";
+    private static final String IT_AGENT = "it.agent@guptacorp.com";
+    private static final String FINANCE_AGENT = "finance.agent@guptacorp.com";
 
     @Autowired
     private MockMvc mockMvc;
