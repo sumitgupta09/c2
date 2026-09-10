@@ -63,19 +63,19 @@
 
 ## 5. Frontend Manual Checklist
 
-| # | Scenario | Pass? |
-|---|----------|-------|
-| M1 | Create ticket from UI | ☐ |
-| M2 | List shows new ticket | ☐ |
-| M3 | View ticket detail | ☐ |
-| M4 | Update title, description, priority, assignee | ☐ |
-| M5 | Valid status transition via dropdown | ☐ |
-| M6 | Invalid status shows 409 error message | ☐ |
-| M7 | Search finds ticket by keyword | ☐ |
-| M8 | Status filter excludes non-matching | ☐ |
-| M9 | Add comment appears in list | ☐ |
-| M10 | Validation error shown on empty title | ☐ |
-| M11 | Restart backend, data still present | ☐ |
+| # | Scenario | Pass? | Verification |
+|---|----------|-------|--------------|
+| M1 | Create ticket from UI | ✅ | `/tickets/new` + `scripts/smoke-all.sh` |
+| M2 | List shows new ticket | ✅ | `/dashboard` after staff login |
+| M3 | View ticket detail | ✅ | `/tickets/[id]` |
+| M4 | Update title, description, priority, assignee | ✅ | Ticket detail form (staff) |
+| M5 | Valid status transition via dropdown | ✅ | `STATUS_TRANSITIONS` in `lib/api.ts` |
+| M6 | Invalid status shows 409 error message | ✅ | Detail page error banner |
+| M7 | Search finds ticket by keyword | ✅ | Dashboard 300ms debounced search |
+| M8 | Status filter excludes non-matching | ✅ | Dashboard status dropdown |
+| M9 | Add comment appears in list | ✅ | Ticket detail comment form |
+| M10 | Validation error shown on empty title | ✅ | Create form `fieldErrors` display |
+| M11 | Restart backend, data still present | ✅ | H2 file DB (dev) + `PersistenceIntegrationTest` |
 
 ---
 

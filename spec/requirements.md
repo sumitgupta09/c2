@@ -86,21 +86,21 @@
 
 | # | Criterion | Status |
 |---|-----------|--------|
-| 1 | Ticket can be created from UI | Planned |
-| 2 | Tickets can be listed | Planned |
-| 3 | Ticket details can be viewed | Planned |
-| 4 | Ticket fields can be updated | Planned |
-| 5 | Assignee can be changed | Planned |
-| 6 | Comments can be added | Planned |
-| 7 | Search works | Planned |
-| 8 | Status filter works | Planned |
-| 9 | Valid status transitions work | Planned |
-| 10 | Invalid status transitions rejected by backend | Planned |
-| 11 | Data survives application restart | Planned |
-| 12 | Backend validation works | Planned |
-| 13 | UI shows meaningful errors | Planned |
-| 14 | State-machine integration tests pass | Planned |
-| 15 | No secrets are committed | Planned |
+| 1 | Ticket can be created from UI | Implemented |
+| 2 | Tickets can be listed | Implemented |
+| 3 | Ticket details can be viewed | Implemented |
+| 4 | Ticket fields can be updated | Implemented |
+| 5 | Assignee can be changed | Implemented |
+| 6 | Comments can be added | Implemented |
+| 7 | Search works | Implemented |
+| 8 | Status filter works | Implemented |
+| 9 | Valid status transitions work | Implemented |
+| 10 | Invalid status transitions rejected by backend | Implemented |
+| 11 | Data survives application restart | Implemented |
+| 12 | Backend validation works | Implemented |
+| 13 | UI shows meaningful errors | Implemented |
+| 14 | State-machine integration tests pass | Implemented |
+| 15 | No secrets are committed | Implemented |
 
 ---
 
