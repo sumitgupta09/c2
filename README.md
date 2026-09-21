@@ -4,6 +4,21 @@ Support Ticket Management System — full-stack implementation with spec-driven 
 
 ## Quick Start
 
+**One command** (kills old ports, then starts backend + frontend):
+
+```bash
+cd /home/sumit/c2
+./start.sh
+```
+
+Stop everything:
+
+```bash
+./stop.sh
+```
+
+Or manually:
+
 ```bash
 # Backend (Java 21)
 export JAVA_HOME=~/.sdkman/candidates/java/21.0.1-amzn
@@ -15,7 +30,8 @@ cd frontend && npm run dev
 
 - **Employee portal:** http://localhost:3000
 - **API:** http://localhost:8080/api
-- **Smoke test (after servers are up):** `./scripts/smoke-all.sh` or `cd backend && ./run.sh smoke`
+- **Smoke test (after servers are up):** `./scripts/e2e-acceptance.sh` or `./scripts/smoke-all.sh` or `cd backend && ./run.sh smoke`
+- **Secrets scan:** `./scripts/secrets-scan.sh`
 
 Copy `.env.example` to `.env` for custom JWT secret (optional for local dev).
 

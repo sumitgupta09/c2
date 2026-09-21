@@ -1,5 +1,9 @@
 import { getSession } from "./auth";
+import { parseApiError } from "./parseApiError";
 import type { ApiError, SupportTeam, Ticket, TicketPriority, TicketStatus, TicketType, UserRole } from "./types";
+
+export { STATUS_TRANSITIONS } from "./statusTransitions";
+export { parseApiError } from "./parseApiError";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api";
 
@@ -10,18 +14,6 @@ function buildHeaders(): HeadersInit {
     headers["Authorization"] = `Bearer ${session.token}`;
   }
   return headers;
-}
-
-function parseApiError(body: Record<string, unknown>, status: number): ApiError {
-  const message =
-    (typeof body.message === "string" && body.message) ||
-    (typeof body.error === "string" && body.error) ||
-    (status === 401 ? "Session expired. Please log in again." : "Request failed");
-  const fieldErrors =
-    body.fieldErrors && typeof body.fieldErrors === "object"
-      ? (body.fieldErrors as Record<string, string>)
-      : {};
-  return { message, fieldErrors };
 }
 
 async function handleResponse<T>(response: Response): Promise<T> {
@@ -143,10 +135,3 @@ export async function addComment(
   return handleResponse<Ticket>(response);
 }
 
-export const STATUS_TRANSITIONS: Record<TicketStatus, TicketStatus[]> = {
-  OPEN: ["IN_PROGRESS", "CANCELLED"],
-  IN_PROGRESS: ["RESOLVED", "CANCELLED"],
-  RESOLVED: ["CLOSED"],
-  CLOSED: [],
-  CANCELLED: [],
-};

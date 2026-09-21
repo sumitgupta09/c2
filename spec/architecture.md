@@ -116,11 +116,14 @@ TicketService.updateTicket()
 
 | Profile | Database | Purpose |
 |---------|----------|---------|
-| `dev` / default | PostgreSQL | Local development, data persists |
+| `dev` / default | **H2 file** (`./data/tickets`) | Local development; data survives restart |
 | `test` | H2 in-memory | Automated tests, isolated |
-| `prod` | PostgreSQL (env vars) | Deployment |
+| `prod` | PostgreSQL (env vars) | Deployment (`docker-compose` port **5433**) |
+| `persistence-test` | H2 file under `target/` | Restart-survival integration test |
 
-Environment variables (prod): `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `CORS_ORIGINS`.
+Environment variables (prod): `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`, `CORS_ORIGINS`, `JWT_SECRET`.
+
+**Note:** Early drafts assumed PostgreSQL for every local run. Implementation uses H2 file for `dev` to simplify onboarding; PostgreSQL remains the production path and is verified via `./scripts/verify-postgres.sh`.
 
 ---
 

@@ -1,82 +1,91 @@
 # Prompt History
 
-Record of AI prompts for this project. Raw SpecStory transcripts: `.specstory/history/` (when extension installed).
+High-signal prompts used for Spec-Driven Development of this Support Ticket Management System.
+
+**Raw SpecStory copies:** `.specstory/history/`  
+**AI mistakes evidence:** `docs/ai-review.md`
 
 ---
 
-## 2026-09-10 — Initial scaffold (exploratory)
-**Prompt:** Build Support Ticket Management System with spec-driven development (Java 21 Spring Boot + Next.js).
-**Outcome:** Initial backend + frontend scaffold.
-**AI mistakes:** See `docs/ai-review-notes.md` entries 1–5.
+## How these prompts are written (standard)
+
+Every prompt includes:
+1. **Role** — who the AI should be  
+2. **Goal** — single clear outcome  
+3. **Hard constraints** — what not to do  
+4. **Inputs** — which `@spec` / `@rules` to attach  
+5. **Ordered steps** — workflow stage discipline  
+6. **Definition of Done** — checklist  
+7. **Output format** — what to report back  
+
+Never: “build the complete application” as a first prompt.
 
 ---
 
-## 2026-09-10 — Planning phase (assignment deliverable)
-**Prompt:** ONLY Requirement Analysis, Specification, AI Steering, Implementation Planning. No implementation.
-**Files:** `spec/*`, `docs/requirements-analysis.md`, `rules/`, `commands/`, `docs/implementation-plan.md`
-**Outcome:** Phase 1 planning complete.
+## SpecStory index
+
+| # | SpecStory file | Stage | One-line intent |
+|---|----------------|-------|-----------------|
+| 001 | `001-planning-spec-driven-kickoff.md` | Spec / Plan | Specs + steering only |
+| 002 | `002-core-ticket-implementation.md` | Implement / Test | Core ticket system |
+| 003 | `003-auth-roles-auto-assign.md` | Implement | JWT + roles |
+| 004 | `004-public-portal-raise-track.md` | Implement / UI | Public raise/track |
+| 005 | `005-auto-priority-by-type.md` | Implement | Auto priority |
+| 006 | `006-corporate-seed-data.md` | Data | Corporate demo seed |
+| 007 | `007-compliance-mcp-prompts.md` | Compliance | Spec-Kit / MCP / prompts |
+| 008 | `008-full-requirements-audit.md` | Audit / Fix | Fix until green |
+| 009 | `009-complete-partial-items.md` | Fix | Close partials |
+| 010 | `010-spec-driven-audit-completion.md` | Review / Fix | Spec drift + FE tests |
+| 011 | `011-start-stop-scripts.md` | Ops | start.sh / stop.sh |
+| 012 | `012-modern-glassmorphism-ui.md` | Frontend | Glass UI upgrade |
 
 ---
 
-## 2026-09-10 — Implementation: core ticket system
-**Prompt:** Build create/list/view/update/comments/search/filter with state machine and validation.
-**Chain:** spec → `TicketStatusMachine` → service → controller → integration tests → Next.js pages.
-**Outcome:** Core acceptance criteria met.
+## Chronological outcomes (short)
+
+### 2026-09-10 — Kickoff
+Specs, rules, commands, constitution, implementation plan created (no full app yet).
+
+### 2026-09-10 — Core build
+Ticket CRUD, search/filter, state machine, tests, Next.js pages.
+
+### 2026-09-10 — Auth + portal + priority + seed
+JWT staff console; public raise/track; auto priority; corporate seeder.
+
+### 2026-09-10 — Compliance + audit
+MCP, prompts, persistence test, full requirement fix loop, partials closed.
+
+### 2026-09-10 — Ops + UI
+`start.sh`/`stop.sh`; modern glassmorphism UI.
+
+### 2026-09-21 — Spec-driven audit
+Spec alignment, FE unit tests, `docs/ai-review.md`, `docs/implementation-status.md`.
 
 ---
 
-## 2026-09-10 — Auth + corporate teams
-**Prompt:** Login roles (admin, team lead, agent), auto-assign by ticket type, Gupta Corp seed data.
-**Outcome:** JWT auth, `SupportTeam`, `DataSeeder`, corporate routing.
-
----
-
-## 2026-09-10 — Public portal
-**Prompt:** Anyone can raise request and track by ID; only staff resolve tickets.
-**Outcome:** Public `/`, `/tickets/new`; staff `/dashboard`; public GET/POST API.
-
----
-
-## 2026-09-10 — Auto priority by type
-**Prompt:** Priority decided by ticket type; admin can override.
-**Outcome:** Removed priority from create form; `resolvePriority()` in `TicketAssignmentService`.
-
----
-
-## 2026-09-10 — Compliance gap closure
-**Prompt:** Close gaps: traceability, MCP server, constitution, persistence test, git/PR, prompt engineering artifacts.
-**Files:** `.constitution.md`, `mcp-server/`, `PersistenceIntegrationTest`, `prompts/`, `commands/self-critique.md`
-**Outcome:** Course compliance artifacts added.
-
----
-
-## 2026-09-10 — Full requirements audit
-**Prompt:** Audit every requirement; fix gaps; re-verify until done.
-**Chain:** audit → fix persistence test → run mvn test → PostgreSQL verify → specstory export
-**Outcome:** 29 tests pass; `verify-postgres.sh` OK; verification log written.
-
----
-
-## 2026-09-10 — Complete partially done items
-**Prompt:** do partially done things also
-**Chain:** postgres verify → specstory history (37 files) → `.specify/` tasks → PR evidence
-**Outcome:** All practical compliance gaps closed. PR push requires remote + `gh` CLI.
-
----
-
-## SpecStory raw transcripts
-
-37 prompt files exported to `.specstory/history/` from Cursor agent transcript (2026-09-10).
-
----
-
-## Template for future entries
+## Template for a new prompt
 
 ```markdown
-## YYYY-MM-DD — [Topic]
-**Prompt:** ...
-**Files referenced:** @spec/..., @rules/...
-**Chain step:** [specify|plan|tasks|implement|review]
-**Outcome:** ...
-**Self-critique:** [link to ai-review-notes if any]
+# NNN — Title
+
+**Stage:** Requirement | Specification | Plan | Implementation | Testing | Review | Fix
+**Inputs:** @spec/... @rules/...
+
+## Role
+...
+
+## Goal
+...
+
+## Hard constraints
+- ...
+
+## Steps
+1. ...
+
+## Definition of Done
+- [ ] ...
+
+## Output format
+...
 ```

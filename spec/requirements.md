@@ -104,19 +104,25 @@
 
 ---
 
-## 5. Out of Scope
+## 5. Out of Scope (core assignment)
 
-- Authentication and authorization
 - Pagination
 - Comment edit/delete
-- Audit trail / notifications
-- Multi-tenancy
+- Audit trail / email notifications
+- Multi-tenancy / white-label SaaS
+
+## 5b. Implemented beyond original minimal brief (documented)
+
+The running system also includes JWT staff authentication, role-based assignee/priority rules,
+and ticket-type auto-routing. These are **in scope for this repository** even though early
+requirement drafts listed “Authentication” as out of scope. Specs and tests cover the auth path.
 
 ---
 
 ## 6. Assumptions
 
 See `docs/requirements-analysis.md` § O for full list. Key assumptions:
-- Assignee is free-text (email-like), not a user FK.
+- Assignee is a staff email string (seeded users), not a free-form customer name.
 - Search and status filter combine with AND logic.
 - Invalid status transition returns **409 Conflict**.
+- Dev profile uses H2 file DB; prod uses PostgreSQL.

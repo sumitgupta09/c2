@@ -50,5 +50,6 @@
 | `commands/review-code.md` | Code review checklist |
 | `commands/review-spec.md` | Spec review checklist |
 | `commands/self-critique.md` | AI self-critique template |
-| `docs/ai-review-notes.md` | Recorded AI mistakes |
+| `docs/ai-review.md` | Structured AI mistake log (assignment) |
+| `docs/implementation-status.md` | Audit gap analysis + final report |
 | `mcp-server/` | MCP tools for ticket API |

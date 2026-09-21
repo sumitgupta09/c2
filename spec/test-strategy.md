@@ -57,21 +57,39 @@
 |------|-------|----------|
 | Data survives restart | Create ticket via API → stop app → start app → GET ticket | 200, same data |
 
-*Runtime DB: PostgreSQL. May use Testcontainers in CI if available.*
+*Runtime DB: PostgreSQL (prod) or H2 file (dev). PersistenceIntegrationTest uses H2 file + restart simulation.*
 
 ---
 
-## 5. Frontend Manual Checklist
+## 5. Frontend Tests
+
+### Automated (required)
+
+| Suite | Tool | Covers |
+|-------|------|--------|
+| `frontend/src/lib/statusTransitions.test.ts` | Node.js `node:test` | UI transition matrix mirrors backend rules |
+| `frontend/src/lib/parseApiError.test.ts` | Node.js `node:test` | 400 fieldErrors + 409 message surfacing |
+| `scripts/e2e-acceptance.sh` | curl + API/UI routes | Full acceptance: create/list/view/update/comment/search/filter/SM/validation/FE |
+| `scripts/secrets-scan.sh` | git hygiene | No tracked secrets |
+
+Run:
+```bash
+cd frontend && npm test
+./scripts/e2e-acceptance.sh   # servers must be up
+./scripts/secrets-scan.sh
+```
+
+### Manual / smoke checklist
 
 | # | Scenario | Pass? | Verification |
 |---|----------|-------|--------------|
-| M1 | Create ticket from UI | ✅ | `/tickets/new` + `scripts/smoke-all.sh` |
+| M1 | Create ticket from UI | ✅ | `/tickets/new` + `scripts/e2e-acceptance.sh` |
 | M2 | List shows new ticket | ✅ | `/dashboard` after staff login |
 | M3 | View ticket detail | ✅ | `/tickets/[id]` |
 | M4 | Update title, description, priority, assignee | ✅ | Ticket detail form (staff) |
-| M5 | Valid status transition via dropdown | ✅ | `STATUS_TRANSITIONS` in `lib/api.ts` |
-| M6 | Invalid status shows 409 error message | ✅ | Detail page error banner |
-| M7 | Search finds ticket by keyword | ✅ | Dashboard 300ms debounced search |
+| M5 | Valid status transition via dropdown | ✅ | `STATUS_TRANSITIONS` in `lib/statusTransitions.ts` |
+| M6 | Invalid status shows 409 error message | ✅ | Detail page error banner + `parseApiError` tests |
+| M7 | Search finds ticket by keyword | ✅ | Dashboard debounced search |
 | M8 | Status filter excludes non-matching | ✅ | Dashboard status dropdown |
 | M9 | Add comment appears in list | ✅ | Ticket detail comment form |
 | M10 | Validation error shown on empty title | ✅ | Create form `fieldErrors` display |

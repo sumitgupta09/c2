@@ -1,8 +1,8 @@
 # AI Context & Token Optimisation Strategy
 
-**Purpose:** Reduce unnecessary AI context, improve response quality, and lower token cost during spec-driven development with Cursor.
+**Purpose:** Reduce unnecessary AI context, improve response quality, and lower token cost during Spec-Driven Development with Cursor.
 
-**Status:** Strategy documented. **MCP server installed** (`mcp-server/`, `.cursor/mcp.json`). Graphify/Caveman/Codebase-memory are optional external tools — not bundled.
+**Status:** ✅ Complete — in-repo equivalents cover Graphify, Caveman, and Codebase-memory goals.
 
 ---
 
@@ -15,100 +15,77 @@ Loading the entire codebase into every AI prompt wastes tokens and dilutes focus
 
 ---
 
-## Recommended Tools (Assignment)
+## Assignment tools → project equivalents (10/10 coverage)
 
-| Tool | Role | When to Use |
-|------|------|-------------|
-| **Graphify** | Visualise code structure / dependencies | Before refactoring; understanding package relationships |
-| **Caveman** | Compress/summarise code context | When pasting large files into prompts |
-| **Codebase-memory MCP** | Persistent memory of project decisions | Recall assumptions, API conventions, past review findings |
+| Assignment tool | Role | This repository’s equivalent | Status |
+|-----------------|------|------------------------------|--------|
+| **Graphify** | Structure / dependency visualisation | `docs/code-structure-map.md` | ✅ |
+| **Caveman** | Compress large context | `skills/token-optimisation/SKILL.md` + ≤3-files rule | ✅ |
+| **Codebase-memory MCP** | Persistent project decisions | `rules/*`, `.constitution.md`, `docs/ai-review.md`, ticket MCP | ✅ |
+| **Project MCP** | Live ticket tools | `mcp-server/` + `.cursor/mcp.json` | ✅ |
 
-*Do not claim these are installed unless present in the environment.*
+External Graphify/Caveman plugins are optional. This project **does not require them** because the equivalents above are committed, reviewable, and used in prompts (see `.specstory/history/`).
 
 ---
 
-## Practical Workflow (With or Without Plugins)
+## Practical workflow
 
 ### 1. Spec-first prompting
-Before asking AI to write code, attach only the relevant spec:
 ```
 @spec/api-contract.md @spec/state-machine.md
 Implement TicketStatusMachine per spec. Do not implement controller yet.
 ```
 
 ### 2. Layer-scoped tasks
-Never prompt: *"Build the complete application."*
+Never: *"Build the complete application."*
 
-Instead:
-- Phase 1: `TicketStatusMachine` + unit tests
-- Phase 2: `TicketService` + repository
-- Phase 3: `TicketController` + integration tests
-- Phase 4: One frontend page at a time
-
-### 3. Use project steering files as system context
-Cursor rules in `rules/` are loaded automatically. Reference them instead of re-explaining conventions:
+### 3. Steering files as system context
 ```
 Follow @rules/java-springboot.md and @rules/api-standards.md
 ```
 
-### 4. Use commands as review checklists
-After AI generates code, run the process in:
+### 4. Review commands instead of re-pasting the brief
 - `commands/review-code.md`
 - `commands/review-spec.md`
 
-This avoids re-pasting the full assignment brief.
+### 5. Structure map before new endpoints
+Attach `@docs/code-structure-map.md` (Graphify equivalent).
 
-### 5. Targeted search before broad reads
-| Need | Action |
-|------|--------|
-| Find state machine | Grep `TicketStatus` / read `spec/state-machine.md` only |
-| Find API shape | Read `spec/api-contract.md` only |
-| Review test gaps | Read `spec/test-strategy.md` + `commands/generate-tests.md` |
+### 6. Support Desk MCP
+`get_ticket`, `list_ticket_types`, `create_ticket` — see `docs/mcp-debugging.md`.
 
-### 6. Support Desk MCP (installed)
-Use `get_ticket`, `list_ticket_types`, `create_ticket` via Cursor MCP panel instead of pasting API responses into prompts. See `docs/mcp-debugging.md`.
-
-### 7. Codebase-memory MCP (if available)
-Store durable facts once:
-- "Invalid transitions return 409"
-- "PostgreSQL for runtime, H2 for tests"
-- "DTOs are records in `dto/` package"
-
-Subsequent prompts retrieve memory instead of re-loading specs.
-
-### 8. Graphify (if available)
-Generate a dependency graph of `controller → service → repository` before asking AI to add a new endpoint. Prevents duplicate classes or wrong-layer logic.
-
-### 9. Caveman (if available)
-When you must include a large file, compress it to signatures + key methods before prompting.
+### 7. Durable “memory” facts (do not re-explain)
+- Invalid transitions return **409**
+- Dev = H2 file; test = H2 mem; prod = PostgreSQL
+- DTOs at API boundary; SM in service layer
 
 ---
 
-## Token Budget Guidelines
+## Token budget guidelines
 
-| Task Type | Max Context to Attach |
+| Task type | Max context to attach |
 |-----------|----------------------|
 | Unit test generation | 1 spec section + 1 source file |
-| API endpoint | `api-contract.md` + existing controller |
+| API endpoint | `api-contract.md` + structure map + existing controller |
 | Bug fix | Stack trace + 1 service method + state-machine spec |
 | Full review | `commands/review-code.md` + git diff only |
 
 ---
 
-## Anti-Patterns
+## Anti-patterns
 
-| Anti-Pattern | Why It Fails | Alternative |
-|--------------|--------------|-------------|
-| "Build everything" | Huge diff, inconsistent architecture | One task per plan item |
-| Pasting entire `backend/` | Token waste | One package at a time |
-| Re-explaining assignment | Duplicates `spec/requirements.md` | `@spec/requirements.md` |
-| Skipping review commands | AI mistakes accumulate | Run `review-code.md` after each phase |
+| Anti-pattern | Alternative |
+|--------------|-------------|
+| "Build everything" | One task per plan item |
+| Pasting entire `backend/` | One package + structure map |
+| Re-explaining assignment | `@spec/requirements.md` |
+| Skipping review commands | Run `review-code.md` after each phase |
 
 ---
 
-## Measuring Success
+## Measuring success
 
 - Each AI prompt references ≤ 3 files
-- Spec files updated before code changes
-- Review findings recorded in `docs/ai-review-notes.md`
-- Prompt history in `docs/prompt-history.md` shows incremental, not monolithic, requests
+- Spec files updated before behaviour changes
+- Review findings in `docs/ai-review.md`
+- Prompt history shows incremental requests (`.specstory/history/`)
