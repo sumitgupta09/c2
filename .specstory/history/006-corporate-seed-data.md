@@ -2,24 +2,24 @@
 
 **Date:** 2026-09-10  
 **Stage:** Implementation / Data  
-**Inputs:** domain enums for teams/roles/types
+**Inputs:** domain enums for teams, roles, and types
 
 ---
 
 ## Role
-You are a platform engineer preparing a demo-ready corporate support desk.
+Platform engineer preparing demo data for a corporate support desk.
 
 ## Goal
-Seed realistic users and tickets so the product feels like a real company support organization.
+Seed realistic users and tickets so local demos look like a real company support organization.
 
 ## Seed design
 - Teams: Support Desk, IT, Database, HR, Finance, Accounts (or equivalent)  
 - Hierarchy: main admin above teams; each team has a lead (`TEAM_ADMIN`) and agents  
 - Sample tickets spanning ticket types (technical, database, HR, billing, account, other)  
-- Demo passwords only in seeder + README; never in production config files
+- Demo passwords only in seeder and README; never in production config files  
 
-## Hard constraints
-- Idempotent seeding when possible (do not duplicate users on every restart blindly without a guard)  
+## Constraints
+- Prefer idempotent seeding (do not blindly duplicate users on every restart)  
 - Use password hashing (BCrypt)  
 - Do not commit real personal data or production secrets  
 

@@ -7,12 +7,12 @@
 ---
 
 ## Role
-You are accountable for making the project actually meet every practical requirement — not for producing a gap list and stopping.
+Engineer responsible for meeting every practical requirement.
 
 ## Goal
 Audit every requirement against real code and tests. Fix gaps. Re-run verification. Repeat until complete.
 
-## Method (mandatory loop)
+## Method
 1. Inspect repository evidence for each requirement  
 2. Mark DONE / PARTIALLY DONE / NOT DONE with proof  
 3. If any gap exists: implement the smallest fix  
@@ -20,9 +20,9 @@ Audit every requirement against real code and tests. Fix gaps. Re-run verificati
 5. Re-audit the same requirement  
 6. Continue until all practical items are DONE  
 
-## Hard constraints
-- Evidence > file existence  
-- Do not claim “complete” without commands + results  
+## Constraints
+- Evidence over file existence alone  
+- Do not claim “complete” without commands and results  
 - Do not rebuild from scratch  
 - Keep secrets out of git  
 

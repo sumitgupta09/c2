@@ -7,25 +7,25 @@
 ---
 
 ## Role
-You are simplifying the customer create experience while keeping ops control for admins.
+Backend engineer simplifying the customer create flow.
 
 ## Goal
-Priority is derived automatically from ticket type. Customers never pick priority. Admins may override later.
+Derive priority automatically from ticket type. Customers never pick priority. Admins may override later.
 
 ## Rules
 - Remove priority from the public create form  
-- Map each ticket type → default priority in one service method (single source of truth)  
+- Map each ticket type to a default priority in one service method (single source of truth)  
 - Admin override remains available on update  
-- Keep validation and API contract consistent; update specs if needed
+- Keep validation and API contract consistent; update specs if needed  
 
-## Hard constraints
+## Constraints
 - No duplicated priority mapping in controller and frontend  
 - Do not break auto-assign behaviour  
-- Add/adjust tests for default priority by type  
+- Add or adjust tests for default priority by type  
 
 ## Definition of Done
 - [ ] Create request DTO/UI has no customer priority field  
-- [ ] Created tickets receive correct default priority  
+- [ ] Created tickets receive the correct default priority  
 - [ ] Admin can still change priority  
 - [ ] Tests cover at least two type→priority mappings  
 

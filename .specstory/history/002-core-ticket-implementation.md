@@ -7,35 +7,35 @@
 ---
 
 ## Role
-You are implementing a Spec-Driven Support Ticket API and UI. You follow specs; you do not invent conflicting behaviour.
+Backend and frontend engineer implementing from the existing specs.
 
 ## Goal
-Deliver the core ticket system end-to-end so acceptance criteria for CRUD, search, filter, validation, errors, and state machine are provably met.
+Ship the core ticket system end to end: CRUD, search, filter, validation, errors, and the state machine, with tests to prove it.
 
-## Hard constraints
-- Implement **one layer / one task at a time** (do not rewrite the whole app in one shot)
-- State machine lives in **service/domain** (`TicketStatusMachine`) — never UI-only
-- Controllers return **DTOs**, never JPA entities
-- Invalid status transitions → **HTTP 409** with `{ message, fieldErrors }`
-- Validation failures → **HTTP 400** with fieldErrors
+## Constraints
+- One layer or one task at a time; do not rewrite the whole app in one pass
+- State machine lives in service/domain (`TicketStatusMachine`) — never UI-only
+- Controllers return DTOs, never JPA entities
+- Invalid status transitions → HTTP 409 with `{ message, fieldErrors }`
+- Validation failures → HTTP 400 with fieldErrors
 - Persistence must survive restart (dev DB file or equivalent)
 - No secrets committed
 
-## Implementation order (strict)
-1. Domain entities + enums  
-2. `TicketStatusMachine` + pure unit tests (valid + invalid matrix)  
-3. Repository + service (create/update/comment/search/filter)  
-4. Controllers + GlobalExceptionHandler  
-5. API integration tests (MockMvc) including 409 cases  
-6. Next.js typed client + pages: create, list, detail, comments, search, status filter  
-7. Wire meaningful UI errors from API `message` / `fieldErrors`
+## Implementation order
+1. Domain entities and enums  
+2. `TicketStatusMachine` plus unit tests (valid and invalid matrix)  
+3. Repository and service (create / update / comment / search / filter)  
+4. Controllers and GlobalExceptionHandler  
+5. API integration tests (MockMvc), including 409 cases  
+6. Next.js typed client and pages: create, list, detail, comments, search, status filter  
+7. Surface API `message` / `fieldErrors` clearly in the UI  
 
 ## Definition of Done
 - [ ] Create / list / view / update / comment / search / filter work via API and UI  
 - [ ] Valid transitions succeed; invalid transitions return 409  
-- [ ] Unit + integration tests for state machine pass  
+- [ ] Unit and integration tests for the state machine pass  
 - [ ] UI shows validation and conflict errors clearly  
 - [ ] Traceability updated for FR-01…FR-13  
 
 ## Output format
-For each task completed: files changed, tests run + results, leftover risks.
+For each completed task: files changed, tests run and results, remaining risks.

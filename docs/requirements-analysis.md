@@ -103,7 +103,7 @@ This document translates the assignment brief into engineering-ready, testable r
 
 | ID | Requirement | Testable Acceptance |
 |----|-------------|---------------------|
-| PR-01 | Tickets stored in PostgreSQL at runtime | Restart app; previously created tickets still retrievable |
+| PR-01 | Tickets stored in PostgreSQL at runtime | Restart app; tickets created before restart remain retrievable |
 | PR-02 | Comments linked to tickets via FK | Deleting ticket cascades or prevents orphan comments per data model |
 | PR-03 | Timestamps auto-managed | `createdAt` immutable; `updatedAt` changes on ticket update |
 | PR-04 | H2 used only for automated tests | `application-test.yml` uses H2; production/dev runtime uses PostgreSQL |

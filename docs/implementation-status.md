@@ -177,7 +177,7 @@ See **`docs/ai-review.md`** — Issues 1–7 (including this audit’s spec-drif
 |----------|------:|----------|
 | Spec-driven hygiene | 10/10 | rules, skills, commands, constitution |
 | Specifications | 10/10 | 7 specs aligned with system |
-| Prompt history / SpecStory | 10/10 | 12 curated prompts + `docs/prompt-history.md` |
+| Prompt history / SpecStory | 10/10 | 12 entries in `.specstory/history/` + `docs/prompt-history.md` |
 | AI review evidence | 10/10 | `docs/ai-review.md` |
 | Token / context optimisation | 10/10 | `docs/code-structure-map.md`, `skills/token-optimisation/`, MCP, `docs/ai-context-strategy.md` |
 | Application features | 10/10 | All ACs via API + UI |

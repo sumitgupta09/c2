@@ -2,30 +2,29 @@
 
 **Date:** 2026-09-10  
 **Stage:** Requirement → Specification → Plan / Tasks  
-**Do not:** Implement the application in this step
+**Out of scope:** Application implementation
 
 ---
 
 ## Role
-You are a Senior Software Engineer, Solution Architect, and Spec-Driven Development mentor working in Cursor.
+Senior software engineer and solution architect.
 
 ## Goal
-Prepare the repository to build a Support Ticket Management System using AI correctly — specifications and steering first, code later.
+Set up the repository for a Support Ticket Management System: specifications and steering first, code later.
 
-## Hard constraints
+## Constraints
 - Follow: Requirement → Specification → Plan / Tasks → (later) Implementation → Testing → Review → Fix
-- **Do NOT** start by building the complete application
-- **Do NOT** generate the full Java backend or Next.js frontend yet
-- **Do NOT** create all controllers/services/repositories in this phase
-- Prefer small, reviewable artefacts over large generated dumps
+- Do not build the complete application in this step
+- Do not generate the full Java backend or Next.js frontend yet
+- Do not create all controllers, services, or repositories in this phase
+- Prefer small, reviewable artefacts over large dumps
 - One concern per artefact; keep specs consistent with each other
 
 ## Technology context (for specs only)
 Java 21 · Spring Boot · PostgreSQL (runtime) / H2 (tests) · REST · Next.js · Cursor · GitHub Copilot
 
 ## Product context
-Support Ticket Management System with:
-create, list, view, update (title/description/priority/assignee), comments, keyword search, status filter, persistence, backend validation, meaningful UI errors.
+Support Ticket Management System with: create, list, view, update (title / description / priority / assignee), comments, keyword search, status filter, persistence, backend validation, and clear UI errors.
 
 ## State machine (must appear in specs)
 ```
@@ -33,19 +32,19 @@ OPEN → IN_PROGRESS → RESOLVED → CLOSED
 OPEN → CANCELLED
 IN_PROGRESS → CANCELLED
 ```
-Invalid examples that must be rejected by backend: CLOSED→OPEN, RESOLVED→OPEN, CANCELLED→OPEN.
+Invalid transitions the backend must reject: CLOSED→OPEN, RESOLVED→OPEN, CANCELLED→OPEN.
 
 ## Deliverables (this phase only)
-1. `docs/requirements-analysis.md` — ambiguities, assumptions, out-of-scope, acceptance mapping  
+1. `docs/requirements-analysis.md` — ambiguities, assumptions, out of scope, acceptance mapping  
 2. Seven specs under `spec/`: requirements, architecture, data-model, api-contract, state-machine, ui-flow, test-strategy  
-3. AI steering: `rules/java-springboot.md`, `rules/testing.md`, `rules/api-standards.md`, `skills/documentation/`, `commands/review-code.md`, `commands/review-spec.md`, `commands/generate-tests.md`  
-4. `.constitution.md` — non-negotiable project laws  
+3. Steering files: `rules/java-springboot.md`, `rules/testing.md`, `rules/api-standards.md`, `skills/documentation/`, `commands/review-code.md`, `commands/review-spec.md`, `commands/generate-tests.md`  
+4. `.constitution.md` — non-negotiable project rules  
 5. `docs/implementation-plan.md` — ordered tasks with dependencies and Definition of Done  
 
 ## Quality bar
-- Specs must be useful and implementation-independent, but mutually consistent (enums, 409 behaviour, validation)
-- Rules must be actionable for future AI prompts (not vague slogans)
-- Cross-check state machine language across requirements, api-contract, and state-machine specs
+- Specs are useful and implementation-independent, but mutually consistent (enums, 409 behaviour, validation)
+- Rules are actionable, not vague slogans
+- State machine language matches across requirements, api-contract, and state-machine specs
 
 ## Definition of Done
 - [ ] All deliverables above exist and are non-empty  
@@ -54,4 +53,4 @@ Invalid examples that must be rejected by backend: CLOSED→OPEN, RESOLVED→OPE
 - [ ] Implementation plan breaks work into small tasks  
 
 ## Output format
-Summarize what you created, list file paths, and call out any open ambiguities you documented (do not invent requirements silently).
+Summarize what was created, list file paths, and note any open ambiguities that were documented. Do not invent requirements silently.
