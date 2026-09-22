@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "supportdesk": {
+      "command": "node",
+      "args": ["mcp-server/index.js"],
+      "env": {
+        "API_BASE": "http://localhost:8080/api"
+      }
+    }
+  }
+}
